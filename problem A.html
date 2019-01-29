@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Calculator</title>
+</head>
+<body align="center">
+	<input type="number" placeholder="0" id="ndisplay">
+	
+	<br>
+	<button onclick="Inputnum(this)">1</button>
+	<button onclick="Inputnum(this)">2</button>
+	<button onclick="Inputnum(this)">3</button>
+	<button id="nbackspace"  onclick="dobackspace()"><</button>
+	
+	<br>
+	<button onclick="Inputnum(this)">4</button>
+	<button onclick="Inputnum(this)">5</button>
+	<button onclick="Inputnum(this)">6</button>
+	<button id="nplus" onclick="doAdd()">+</button>
+	<br>
+	<button onclick="Inputnum(this)">7</button>
+	<button onclick="Inputnum(this)">8</button>
+	<button onclick="Inputnum(this)">9</button>
+	<button id="nminus" onclick="doSubtract()">-</button>
+	<br>
+	<button id="nequals"  onclick="result()">=</button>
+	<button onclick="Inputnum(this)">0</button>
+	<button id="ndivide"  onclick="dodivide()">/</button>
+	<button id="nmultiply"  onclick="domultiply()"> * </button>
+	<br>
+	<button id="nmodulo"  onclick="domodulo()">%</button>
+	<button id="nexponent"  onclick="doexponent()"> x </button>
+	<button id="nclear"  onclick="doclear()">c</button>
+	
+<script type="text/javascript">
+	
+	let n = document.getElementById('ndisplay');
+	let numberHolder = parseInt(n.value);
+	let optr;
+
+		function Inputnum(e){
+			n.value += e.innerHTML;
+		}
+		function doAdd(){
+			optr = "+";
+			numberHolder = parseInt(n.value);
+			n.value = "";
+		}
+		function doSubtract(){
+			optr = "-";
+			numberHolder = parseInt(n.value);
+			n.value = "";
+		}
+		function domultiply(){
+			optr = "*";
+			numberHolder = parseInt(n.value);
+			n.value = "";
+		}
+		function dodivide(){
+			optr = "/";
+			numberHolder = parseInt(n.value);
+			n.value = "";
+		}
+		function domodulo(){
+			optr = "%";
+			numberHolder = parseInt(n.value);
+			n.value = "";
+		}
+		function doclear(){
+			optr = "c";
+			numberHolder = parseInt(n.value);
+			n.value = "0";
+		}
+		function dobackspace(){
+			optr = "<";
+			numberHolder = parseInt(n.value);
+			n.value = "placeholder - (n.value)";
+		}
+
+		
+
+	function result(){
+		switch(optr){
+			case"+":
+				n.value = numberHolder + parseInt(n.value);
+				break;
+			case"-":
+				n.value = numberHolder - parseInt(n.value);
+				break;
+			case"*":
+				n.value = numberHolder * parseInt(n.value);
+				break;
+			case"/":
+				n.value = numberHolder / parseInt(n.value);
+				break;
+			case"%":
+				n.value = numberHolder % parseInt(n.value);
+				break;
+
+		default:
+			console.log('no operator defined');
+			break;
+		}
+	}
+	
+
+</script>
+
+
+
+
+</body>
+</html>
